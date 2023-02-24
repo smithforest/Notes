@@ -36,3 +36,60 @@
        </dependency>
    </dependencies>
    ```
+
+4. Springboot引导类
+
+```java
+@SpringBootApplication
+public class Springboot0103QuickstartApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Springboot0103QuickstartApplication.class, args);
+    }
+}
+```
+
+  其中 SpringApplication得到的是一个是spring管理bean的上下文容器。
+
+```java
+ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(Springboot0103QuickstartApplication.class, args);
+configurableApplicationContext.getBean(BookController.class)
+```
+
+4. tomcat服务器
+
+   tomcat本质也是Java对象，将tomcat交给spring容器进行管理。
+
+   maven排除tomcat依赖，并添加jetty服务器
+
+   ```xml
+           <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter-web</artifactId>
+               <exclusions>
+                   <exclusion>
+                       <groupId>org.springframework.boot</groupId>
+                       <artifactId>spring-boot-starter-tomcat</artifactId>
+                   </exclusion>
+               </exclusions>
+           </dependency>
+   
+           <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter-jetty</artifactId>
+           </dependency>
+   ```
+
+Jetty比tomcat更轻量级，可扩展性更强，谷歌应用引擎就用的jetty
+
+springboot用的三大服务器：tomcat，jetty（负载远比不上tomcat ），undertow
+
+## REST知识补充
+
+REST (respresentational state transfer) 表现形式转换
+
+ 根据REST风格对资源进行访问成为RESTFUL
+
+描述模块的名称通常使用复数，也就是i加s的格式描述，表示此类资源，而非单个资源，例如：users，books。 
+
+@RestController=@responsebody+@controller
