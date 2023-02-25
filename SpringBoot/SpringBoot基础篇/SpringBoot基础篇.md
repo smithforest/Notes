@@ -84,6 +84,35 @@ Jetty比tomcat更轻量级，可扩展性更强，谷歌应用引擎就用的jet
 
 springboot用的三大服务器：tomcat，jetty（负载远比不上tomcat ），undertow
 
+5. springboot 配置文件
+
+   springboot配置文件支持application.properties,application.yml(主流)，application.yaml(加载顺序也是这个顺序)。
+
+   properties配置文件格式如下：
+
+   ```properties
+   server.port=8081
+   logging.level.root=debug
+   ```
+
+   yml和yaml配置文件格式如下：
+
+   ```yml
+   server:
+     port: 8082
+   logging:
+     level:
+       root: error
+   ```
+
+   springboot的配置文件一般在resources文件夹下面。
+
+   IDEA手动添加配置文件的方式：project structure ->facets->项目名->配置文件标识->+号
+
+   yaml数据格式，和xml，properties一样都只是一种存储数据的文件格式。一般以.yml和.yaml结尾。
+
+   
+
 ## REST知识补充
 
 REST (respresentational state transfer) 表现形式转换
