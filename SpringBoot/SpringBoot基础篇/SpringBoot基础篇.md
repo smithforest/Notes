@@ -105,12 +105,31 @@ springboot用的三大服务器：tomcat，jetty（负载远比不上tomcat ）�
        root: error
    ```
 
+   ```yaml
+   users: [1,2,3,4]
+   users2:
+     - 1
+     - 2
+     - 3
+     - 4
+   users3: [{name:1,age:18},{name:2,age:19}]
+   users4:
+     -
+       name:1
+       age:18
+     -
+       name:2
+       age:19
+   ```
+   
+   重点：数据前面要用空格和冒号分开。
+   
    springboot的配置文件一般在resources文件夹下面。
-
+   
    IDEA手动添加配置文件的方式：project structure ->facets->项目名->配置文件标识->+号
-
+   
    yaml数据格式，和xml，properties一样都只是一种存储数据的文件格式。一般以.yml和.yaml结尾。
-
+   
    
 
 ## REST知识补充
